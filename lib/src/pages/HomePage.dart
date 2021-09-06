@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final button = new InkWell(
         onTap: () {
-          Navigator.pushNamed(context, GAME);
+          Navigator.pushNamed(context, CATEGORY);
         },
         child: new Container(
           margin: new EdgeInsets.only(top: 30.0, left: 30.0, right: 30.0),
