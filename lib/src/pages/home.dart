@@ -7,19 +7,6 @@ import 'package:trivia_game/src/widgets/quiz_options.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 class HomePage extends StatelessWidget {
-  final List<Color> tileColors = [
-    Colors.green,
-    Colors.blue,
-    Colors.purple,
-    Colors.pink,
-    Colors.indigo,
-    Colors.lightBlue,
-    Colors.amber,
-    Colors.deepOrange,
-    Colors.red,
-    Colors.brown,
-    Colors.black54
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +21,6 @@ class HomePage extends StatelessWidget {
             ClipPath(
               child: Container(
                 decoration:
-                    // BoxDecoration(color: Theme.of(context).primaryColor),
                     BoxDecoration(color: Colors.black87),
                 height: 900,
               ),
