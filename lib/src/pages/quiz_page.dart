@@ -38,17 +38,18 @@ class _QuizPageState extends State<QuizPage> {
       child: Scaffold(
         key: _key,
         appBar: AppBar(
-          title: Text(widget.category.name),
+          backgroundColor: Colors.black87,
+          title: Center(
+            child: Text(widget.category.name),
+          ),
           elevation: 0,
         ),
         body: Stack(
           children: <Widget>[
             ClipPath(
-              clipper: WaveClipperTwo(),
               child: Container(
-                decoration:
-                    BoxDecoration(color: Theme.of(context).primaryColor),
-                height: 200,
+                decoration: BoxDecoration(color: Colors.black87),
+                height: 900,
               ),
             ),
             Padding(
@@ -58,8 +59,11 @@ class _QuizPageState extends State<QuizPage> {
                   Row(
                     children: <Widget>[
                       CircleAvatar(
-                        backgroundColor: Colors.white70,
-                        child: Text("${_currentIndex + 1}"),
+                        backgroundColor: Colors.green,
+                        child: Text(
+                          "${_currentIndex + 1}",
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                       SizedBox(width: 16.0),
                       Expanded(
@@ -76,15 +80,19 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                   SizedBox(height: 20.0),
                   Card(
+                    color: Colors.grey.shade800,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         ...options.map((option) => RadioListTile(
-
-                              title: Text(HtmlUnescape().convert("$option"),style: MediaQuery.of(context).size.width > 800
-                              ? TextStyle(
-                                fontSize: 30.0
-                              ) : null,),
+                              activeColor: Colors.green,
+                              title: Text(
+                                HtmlUnescape().convert("$option"),
+                                style: MediaQuery.of(context).size.width > 800
+                                    ? TextStyle(
+                                        fontSize: 30.0, color: Colors.white)
+                                    : TextStyle(color: Colors.white),
+                              ),
                               groupValue: _answers[_currentIndex],
                               value: option,
                               onChanged: (value) {
@@ -100,13 +108,19 @@ class _QuizPageState extends State<QuizPage> {
                     child: Container(
                       alignment: Alignment.bottomCenter,
                       child: RaisedButton(
+                        color: Colors.green,
                         padding: MediaQuery.of(context).size.width > 800
-                              ? const EdgeInsets.symmetric(vertical: 20.0,horizontal: 64.0) : null,
+                            ? const EdgeInsets.symmetric(
+                                vertical: 20.0, horizontal: 64.0)
+                            : null,
                         child: Text(
-                            _currentIndex == (widget.questions.length - 1)
-                                ? "Submit"
-                                : "Next", style: MediaQuery.of(context).size.width > 800
-                              ? TextStyle(fontSize: 30.0) : null,),
+                          _currentIndex == (widget.questions.length - 1)
+                              ? "Enviar"
+                              : "Siguiente pregunta",
+                          style: MediaQuery.of(context).size.width > 800
+                              ? TextStyle(fontSize: 30.0)
+                              : null,
+                        ),
                         onPressed: _nextSubmit,
                       ),
                     ),
@@ -123,7 +137,7 @@ class _QuizPageState extends State<QuizPage> {
   void _nextSubmit() {
     if (_answers[_currentIndex] == null) {
       _key.currentState.showSnackBar(SnackBar(
-        content: Text("You must select an answer to continue."),
+        content: Text("Debes seleccionar una opción"),
       ));
       return;
     }
@@ -143,18 +157,24 @@ class _QuizPageState extends State<QuizPage> {
         context: context,
         builder: (_) {
           return AlertDialog(
-            content: Text(
-                "Are you sure you want to quit the quiz? All your progress will be lost."),
-            title: Text("Warning!"),
+            backgroundColor: Colors.grey.shade800,
+            content: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              child: Text("¿Estás seguro de que quieres salir?",
+                  style: TextStyle(color: Colors.white)),
+            ),
             actions: <Widget>[
               FlatButton(
-                child: Text("Yes"),
+                child: Text("Si, salir", style: TextStyle(color: Colors.white)),
                 onPressed: () {
                   Navigator.pop(context, true);
                 },
               ),
               FlatButton(
-                child: Text("No"),
+                child: Text("No, seguir jugando",
+                    style: TextStyle(color: Colors.white)),
                 onPressed: () {
                   Navigator.pop(context, false);
                 },
