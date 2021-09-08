@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:trivia_game/src/models/category.dart';
@@ -15,24 +17,26 @@ class HomePage extends StatelessWidget {
     Colors.amber,
     Colors.deepOrange,
     Colors.red,
-    Colors.brown
+    Colors.brown,
+    Colors.black54
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.black87,
           title: Text('Juego de preguntas'),
           elevation: 0,
         ),
         body: Stack(
           children: <Widget>[
             ClipPath(
-              // clipper: WaveClipperTwo(),
               child: Container(
                 decoration:
-                    BoxDecoration(color: Theme.of(context).primaryColor),
-                height: 200,
+                    // BoxDecoration(color: Theme.of(context).primaryColor),
+                    BoxDecoration(color: Colors.black87),
+                height: 900,
               ),
             ),
             CustomScrollView(
@@ -43,7 +47,7 @@ class HomePage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 16.0, vertical: 8.0),
                     child: Text(
-                      "Select a category to start the quiz",
+                      "Selecciona una categoría:",
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -55,10 +59,12 @@ class HomePage extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   sliver: SliverGrid(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: MediaQuery.of(context).size.width >
-                                  1000
-                              ? 7
-                              : MediaQuery.of(context).size.width > 600 ? 5 : 3,
+                          crossAxisCount:
+                              MediaQuery.of(context).size.width > 1000
+                                  ? 7
+                                  : MediaQuery.of(context).size.width > 600
+                                      ? 5
+                                      : 3,
                           childAspectRatio: 1.2,
                           crossAxisSpacing: 10.0,
                           mainAxisSpacing: 10.0),
@@ -80,7 +86,7 @@ class HomePage extends StatelessWidget {
       highlightElevation: 1.0,
       onPressed: () => _categoryPressed(context, category),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(0.0),
+        borderRadius: BorderRadius.circular(20.0),
       ),
       color: Colors.grey.shade800,
       textColor: Colors.white70,
