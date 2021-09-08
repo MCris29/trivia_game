@@ -190,7 +190,9 @@ class _QuizOptionsDialogState extends State<QuizOptionsDialog> {
             ),
             SizedBox(height: 20.0),
             processing
-                ? CircularProgressIndicator()
+                ? CircularProgressIndicator(
+                    color: Colors.green,
+                  )
                 : RaisedButton(
                     color: Colors.green,
                     child: Text(

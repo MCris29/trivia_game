@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
                                   ? 7
                                   : MediaQuery.of(context).size.width > 600
                                       ? 5
-                                      : 3,
+                                      : 2,
                           childAspectRatio: 1.2,
                           crossAxisSpacing: 10.0,
                           mainAxisSpacing: 10.0),
@@ -75,11 +75,10 @@ class HomePage extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.0),
       ),
       color: Colors.grey.shade800,
-      textColor: Colors.white70,
+      textColor: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          // if (category.icon != null) Icon(category.icon),
           if (category.icon != null) SizedBox(height: 5.0),
           AutoSizeText(
             category.name,

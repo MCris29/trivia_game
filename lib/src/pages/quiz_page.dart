@@ -79,12 +79,18 @@ class _QuizPageState extends State<QuizPage> {
                     ],
                   ),
                   SizedBox(height: 20.0),
-                  Card(
-                    color: Colors.grey.shade800,
+                  Container(
+                    color: Colors.transparent,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        ...options.map((option) => RadioListTile(
+                        ...options.map((option) => Container(
+                            margin: EdgeInsets.only(top: 10.0),
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade800,
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                            child: RadioListTile(
                               activeColor: Colors.green,
                               title: Text(
                                 HtmlUnescape().convert("$option"),
@@ -100,7 +106,7 @@ class _QuizPageState extends State<QuizPage> {
                                   _answers[_currentIndex] = option;
                                 });
                               },
-                            )),
+                            ))),
                       ],
                     ),
                   ),
