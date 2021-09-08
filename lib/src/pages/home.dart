@@ -7,21 +7,21 @@ import 'package:trivia_game/src/widgets/quiz_options.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 class HomePage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black87,
-          title: Text('Juego de preguntas'),
+          title: Center(
+            child: Text('Juego de preguntas'),
+          ),
           elevation: 0,
         ),
         body: Stack(
           children: <Widget>[
             ClipPath(
               child: Container(
-                decoration:
-                    BoxDecoration(color: Colors.black87),
+                decoration: BoxDecoration(color: Colors.black87),
                 height: 900,
               ),
             ),
@@ -94,14 +94,17 @@ class HomePage extends StatelessWidget {
   }
 
   _categoryPressed(BuildContext context, Category category) {
-    showModalBottomSheet(
+    showDialog(
       context: context,
-      builder: (sheetContext) => BottomSheet(
-        builder: (_) => QuizOptionsDialog(
-          category: category,
-        ),
-        onClosing: () {},
-      ),
+      builder: (sheetContext) => AlertDialog(
+          contentPadding: EdgeInsets.zero,
+          backgroundColor: Colors.transparent,
+          content: ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: QuizOptionsDialog(
+              category: category,
+            ),
+          )),
     );
   }
 }

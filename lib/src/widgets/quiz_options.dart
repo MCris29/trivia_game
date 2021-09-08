@@ -21,7 +21,7 @@ class _QuizOptionsDialogState extends State<QuizOptionsDialog> {
   bool processing;
 
   @override
-  void initState() { 
+  void initState() {
     super.initState();
     _noOfQuestions = 10;
     _difficulty = "easy";
@@ -29,18 +29,37 @@ class _QuizOptionsDialogState extends State<QuizOptionsDialog> {
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return SingleChildScrollView(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.black87,
+        ),
         child: Column(
           children: <Widget>[
             Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(16.0),
-              color: Colors.grey.shade200,
-              child: Text(widget.category.name, style: Theme.of(context).textTheme.title.copyWith(),),
-            ),
+                width: double.infinity,
+                padding: const EdgeInsets.all(16.0),
+                color: Colors.green,
+                child: Center(
+                  child: Text(
+                    widget.category.name,
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                )),
             SizedBox(height: 10.0),
-            Text("Select Total Number of Questions"),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 15.0, bottom: 10.0),
+                child: Text(
+                  "Selecciona el total de preguntas:",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
             SizedBox(
               width: double.infinity,
               child: Wrap(
@@ -52,40 +71,68 @@ class _QuizOptionsDialogState extends State<QuizOptionsDialog> {
                   SizedBox(width: 0.0),
                   ActionChip(
                     label: Text("10"),
-                    labelStyle: TextStyle(color: Colors.white),
-                    backgroundColor: _noOfQuestions == 10 ? Colors.indigo : Colors.grey.shade600,
+                    labelStyle: TextStyle(
+                        color:
+                            _noOfQuestions == 10 ? Colors.black : Colors.white),
+                    backgroundColor: _noOfQuestions == 10
+                        ? Colors.green
+                        : Colors.grey.shade600,
                     onPressed: () => _selectNumberOfQuestions(10),
                   ),
                   ActionChip(
                     label: Text("20"),
-                    labelStyle: TextStyle(color: Colors.white),
-                    backgroundColor: _noOfQuestions == 20 ? Colors.indigo : Colors.grey.shade600,
+                    labelStyle: TextStyle(
+                        color:
+                            _noOfQuestions == 20 ? Colors.black : Colors.white),
+                    backgroundColor: _noOfQuestions == 20
+                        ? Colors.green
+                        : Colors.grey.shade600,
                     onPressed: () => _selectNumberOfQuestions(20),
                   ),
                   ActionChip(
                     label: Text("30"),
-                    labelStyle: TextStyle(color: Colors.white),
-                    backgroundColor: _noOfQuestions == 30 ? Colors.indigo : Colors.grey.shade600,
+                    labelStyle: TextStyle(
+                        color:
+                            _noOfQuestions == 30 ? Colors.black : Colors.white),
+                    backgroundColor: _noOfQuestions == 30
+                        ? Colors.green
+                        : Colors.grey.shade600,
                     onPressed: () => _selectNumberOfQuestions(30),
                   ),
                   ActionChip(
                     label: Text("40"),
-                    labelStyle: TextStyle(color: Colors.white),
-                    backgroundColor: _noOfQuestions == 40 ? Colors.indigo : Colors.grey.shade600,
+                    labelStyle: TextStyle(
+                        color:
+                            _noOfQuestions == 40 ? Colors.black : Colors.white),
+                    backgroundColor: _noOfQuestions == 40
+                        ? Colors.green
+                        : Colors.grey.shade600,
                     onPressed: () => _selectNumberOfQuestions(40),
                   ),
                   ActionChip(
                     label: Text("50"),
-                    labelStyle: TextStyle(color: Colors.white),
-                    backgroundColor: _noOfQuestions == 50 ? Colors.indigo : Colors.grey.shade600,
+                    labelStyle: TextStyle(
+                        color:
+                            _noOfQuestions == 50 ? Colors.black : Colors.white),
+                    backgroundColor: _noOfQuestions == 50
+                        ? Colors.green
+                        : Colors.grey.shade600,
                     onPressed: () => _selectNumberOfQuestions(50),
                   ),
-                  
                 ],
               ),
             ),
             SizedBox(height: 20.0),
-            Text("Select Difficulty"),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 15.0, bottom: 10.0),
+                child: Text(
+                  "Selecciona la dificultad:",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
             SizedBox(
               width: double.infinity,
               child: Wrap(
@@ -96,42 +143,69 @@ class _QuizOptionsDialogState extends State<QuizOptionsDialog> {
                 children: <Widget>[
                   SizedBox(width: 0.0),
                   ActionChip(
-                    label: Text("Any"),
-                    labelStyle: TextStyle(color: Colors.white),
-                    backgroundColor: _difficulty == null ? Colors.indigo : Colors.grey.shade600,
+                    label: Text("Al azar"),
+                    labelStyle: TextStyle(
+                        color:
+                            _difficulty == null ? Colors.black : Colors.white),
+                    backgroundColor: _difficulty == null
+                        ? Colors.green
+                        : Colors.grey.shade600,
                     onPressed: () => _selectDifficulty(null),
                   ),
                   ActionChip(
-                    label: Text("Easy"),
-                    labelStyle: TextStyle(color: Colors.white),
-                    backgroundColor: _difficulty == "easy" ? Colors.indigo : Colors.grey.shade600,
+                    label: Text("Fácil"),
+                    labelStyle: TextStyle(
+                        color: _difficulty == "easy"
+                            ? Colors.black
+                            : Colors.white),
+                    backgroundColor: _difficulty == "easy"
+                        ? Colors.green
+                        : Colors.grey.shade600,
                     onPressed: () => _selectDifficulty("easy"),
                   ),
                   ActionChip(
-                    label: Text("Medium"),
-                    labelStyle: TextStyle(color: Colors.white),
-                    backgroundColor: _difficulty == "medium" ? Colors.indigo : Colors.grey.shade600,
+                    label: Text("Medio"),
+                    labelStyle: TextStyle(
+                        color: _difficulty == "medium"
+                            ? Colors.black
+                            : Colors.white),
+                    backgroundColor: _difficulty == "medium"
+                        ? Colors.green
+                        : Colors.grey.shade600,
                     onPressed: () => _selectDifficulty("medium"),
                   ),
                   ActionChip(
-                    label: Text("Hard"),
-                    labelStyle: TextStyle(color: Colors.white),
-                    backgroundColor: _difficulty == "hard" ? Colors.indigo : Colors.grey.shade600,
+                    label: Text("Difícil"),
+                    labelStyle: TextStyle(
+                        color: _difficulty == "hard"
+                            ? Colors.black
+                            : Colors.white),
+                    backgroundColor: _difficulty == "hard"
+                        ? Colors.green
+                        : Colors.grey.shade600,
                     onPressed: () => _selectDifficulty("hard"),
                   ),
-                  
                 ],
               ),
             ),
             SizedBox(height: 20.0),
-            processing ? CircularProgressIndicator() : RaisedButton(
-              child: Text("Start Quiz"),
-              onPressed: _startQuiz,
-            ),
+            processing
+                ? CircularProgressIndicator()
+                : RaisedButton(
+                    color: Colors.green,
+                    child: Text(
+                      "Comenzar a responder",
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                    onPressed: _startQuiz,
+                  ),
             SizedBox(height: 20.0),
           ],
         ),
-      );
+      ),
+    );
   }
 
   _selectNumberOfQuestions(int i) {
@@ -142,38 +216,50 @@ class _QuizOptionsDialogState extends State<QuizOptionsDialog> {
 
   _selectDifficulty(String s) {
     setState(() {
-      _difficulty=s;
+      _difficulty = s;
     });
   }
 
   void _startQuiz() async {
     setState(() {
-      processing=true;
+      processing = true;
     });
     try {
-      List<Question> questions =  await getQuestions(widget.category, _noOfQuestions, _difficulty);
+      List<Question> questions =
+          await getQuestions(widget.category, _noOfQuestions, _difficulty);
       Navigator.pop(context);
-      if(questions.length < 1) {
+      if (questions.length < 1) {
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (_) => ErrorPage(message: "There are not enough questions in the category, with the options you selected.",)
-        ));
+            builder: (_) => ErrorPage(
+                  message: "No hay suficientes preguntas para esta categoría",
+                )));
         return;
       }
-      Navigator.push(context, MaterialPageRoute(
-        builder: (_) => QuizPage(questions: questions, category: widget.category,)
-      ));
-    }on SocketException catch (_) {
-      Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (_) => ErrorPage(message: "Can't reach the servers, \n Please check your internet connection.",)
-      ));
-    } catch(e){
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (_) => QuizPage(
+                    questions: questions,
+                    category: widget.category,
+                  )));
+    } on SocketException catch (_) {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (_) => ErrorPage(
+                    message: "No se pudo conectar con el servidor",
+                  )));
+    } catch (e) {
       print(e.message);
-      Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (_) => ErrorPage(message: "Unexpected error trying to connect to the API",)
-      ));
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (_) => ErrorPage(
+                    message: "Ocurrió un error, no se pudo conectar con la API",
+                  )));
     }
     setState(() {
-      processing=false;
+      processing = false;
     });
   }
 }
