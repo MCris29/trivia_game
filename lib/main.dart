@@ -9,17 +9,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Juego de Preguntas',
-      theme: ThemeData(
-          primarySwatch: Colors.pink,
-          accentColor: Colors.indigo,
-          fontFamily: "Montserrat",
-          buttonColor: Colors.pink,
-          buttonTheme: ButtonThemeData(
-              buttonColor: Colors.pink,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              textTheme: ButtonTextTheme.primary)),
       home: HomePage(),
     );
   }
