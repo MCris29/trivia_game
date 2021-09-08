@@ -112,16 +112,18 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                   Expanded(
                     child: Container(
-                      alignment: Alignment.bottomCenter,
+                      alignment: Alignment.topCenter,
+                      margin: EdgeInsets.only(top: 20.0),
                       child: RaisedButton(
                         color: Colors.green,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0)),
                         padding: MediaQuery.of(context).size.width > 800
-                            ? const EdgeInsets.symmetric(
-                                vertical: 20.0, horizontal: 64.0)
+                            ? const EdgeInsets.all(20.0)
                             : null,
                         child: Text(
                           _currentIndex == (widget.questions.length - 1)
-                              ? "Enviar"
+                              ? "Terminar intento"
                               : "Siguiente pregunta",
                           style: MediaQuery.of(context).size.width > 800
                               ? TextStyle(fontSize: 30.0)
