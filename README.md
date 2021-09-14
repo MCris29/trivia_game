@@ -13,3 +13,6 @@ https://youtu.be/tLHAP_DCZt0
 ![image](https://github.com/MCris29/trivia_game/blob/dev/images/home.png)
 ![image](https://github.com/MCris29/trivia_game/blob/dev/images/question.png)
 ![image](https://github.com/MCris29/trivia_game/blob/dev/images/result.png)
+
+### Publicación en Uptodown
+![image](https://github.com/MCris29/trivia_game/blob/dev/images/uptodown.png)
